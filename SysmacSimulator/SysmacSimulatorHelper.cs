@@ -169,17 +169,17 @@ namespace SysmacSimulator
                 var error = responseTuple.Item2;
                 if (error != null)
                 {
-                    return Tuple.Create<bool, string, object>(false, variableName + ":" + $"Error reading variable: {error}",null);
+                    return Tuple.Create<bool, string, object>(false, variableName + ":" + $"Error reading variable: {error}", null);
                 }
                 // 根据变量类型解析响应数据，并返回解析后的值
                 object result = UnpackBytes(responseData, variableInfo.Type);
-                return Tuple.Create(true, "读取成功!" + "   " + variableName + "   -   " + result,result);
+                return Tuple.Create(true, "读取成功!" + "   " + variableName + "   -   " + result, result);
             }
             catch (Exception ex)
             {
                 // 记录异常或处理异常
                 string errorMsg = $" 执行  public Tuple<bool, string> WriteVariable(string variableName, object value) 方法发生异常：{ex.Message}";
-                return Tuple.Create<bool, string, object>(false, variableName + ":" + $"Error writing variable: {errorMsg}",null);
+                return Tuple.Create<bool, string, object>(false, variableName + ":" + $"Error writing variable: {errorMsg}", null);
             }
         }
 

@@ -1,7 +1,6 @@
 ﻿using Sunny.UI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -117,7 +116,6 @@ namespace SysmacSimulator
 
                 if (isDataLoaded)
                 {
-
                     // 重启 ReadTask 线程
                     if (isConnected)
                     {
@@ -263,24 +261,31 @@ namespace SysmacSimulator
                     case "VariableName":
                         e.Value = variable.VariableName;
                         break;
+
                     case "RevisionString":
                         e.Value = variable.RevisionString;
                         break;
+
                     case "AddressString":
                         e.Value = variable.AddressString;
                         break;
+
                     case "Size":
                         e.Value = variable.Size;
                         break;
+
                     case "Type":
                         e.Value = variable.Type;
                         break;
+
                     case "LowIndex":
                         e.Value = variable.LowIndex;
                         break;
+
                     case "HighIndex":
                         e.Value = variable.HighIndex;
                         break;
+
                     case "Value":
                         e.Value = variable.Value;
                         break;
@@ -298,24 +303,31 @@ namespace SysmacSimulator
                     case "VariableName":
                         variable.VariableName = (string)e.Value;
                         break;
+
                     case "RevisionString":
                         // 不允许直接修改 RevisionString
                         break;
+
                     case "AddressString":
                         // 不允许直接修改 AddressString
                         break;
+
                     case "Size":
                         variable.Size = (int)e.Value;
                         break;
+
                     case "Type":
                         variable.Type = (string)e.Value;
                         break;
+
                     case "LowIndex":
                         variable.LowIndex = (int?)e.Value;
                         break;
+
                     case "HighIndex":
                         variable.HighIndex = (int?)e.Value;
                         break;
+
                     case "Value":
                         variable.Value = e.Value;
                         break;
@@ -323,11 +335,10 @@ namespace SysmacSimulator
             }
         }
 
-
         private void UiDataGridView1_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            // DataGridViewRowEventArgs does not have a Cancel property.  
-            // To prevent new rows from being added, set the AllowUserToAddRows property of the DataGridView to false.  
+            // DataGridViewRowEventArgs does not have a Cancel property.
+            // To prevent new rows from being added, set the AllowUserToAddRows property of the DataGridView to false.
             // 不允许添加新行
             uiDataGridView1.AllowUserToAddRows = false;
         }
